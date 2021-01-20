@@ -1,0 +1,5 @@
+{
+    "baseUrl": "https://demoqa.com/",
+    "testFiles": "**/*.feature",
+    "chromeWebSecurity": false
+}
