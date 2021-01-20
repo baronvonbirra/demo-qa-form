@@ -15,4 +15,5 @@ Given(`I register {string} random user`, (pos) => {
 
 Then(`I output the non-registered users`, () => {
   cy.log(`Non-registered users are: ${updatedUserList}`);
+  cy.task('log', `Non-registered users are: ${updatedUserList}`);
 })
