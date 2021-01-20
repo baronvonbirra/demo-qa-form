@@ -24,3 +24,5 @@ Hint: attention to the details
 - _npm i_
 - _npx cypress run_ > for Cypress headless mode
 - _npx cypress open_ > for Cypress browser mode
+
+- Alternatively, you can watch the _registration.feature.mp4_ video for a quick visual check as well.
