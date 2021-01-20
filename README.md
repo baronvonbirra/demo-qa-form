@@ -20,6 +20,6 @@ Hint: attention to the details
 
 ## Launching Cypress tests
 - Clone repo
-- _npm i
+- _npm i_
 - _npx cypress run_ > for Cypress headless mode
 - _npx cypress open_ > for Cypress browser mode
