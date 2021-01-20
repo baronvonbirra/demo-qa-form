@@ -19,6 +19,7 @@ registered users.
 Hint: attention to the details
 
 ## Launching Cypress tests
+- Make sure node and npm are downloaded and up to date
 - Clone repo
 - _npm i_
 - _npx cypress run_ > for Cypress headless mode
