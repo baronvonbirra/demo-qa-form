@@ -32,3 +32,8 @@ Hint: attention to the details
 - Clone repo
 - Open _AppTest.java_ from Eclipse
 - Right click > Run As > JUnit Test
+
+## Notes
+The automation-practice-form where the tests point has the following identified errors that affects the automation:
+- Page crash when _Date of birth_ field is cleared.
+- Page crash when _Subjects_ field is cleared.
