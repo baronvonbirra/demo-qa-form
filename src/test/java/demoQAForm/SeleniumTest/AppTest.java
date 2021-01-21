@@ -13,8 +13,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.Keys;
 import java.util.Arrays;
 
-import demoQAForm.SeleniumTest.Randomizator;
-
 public class AppTest {
 	private static FirefoxDriver driver;
 	WebElement element;
