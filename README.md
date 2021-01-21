@@ -26,3 +26,9 @@ Hint: attention to the details
 - _npx cypress open_ > for Cypress browser mode
 
 - Alternatively, you can watch the _registration.feature.mp4_ video for a quick visual check as well.
+
+## Launching Selenium tests
+- Install Eclipse & Maven
+- Clone repo
+- Open _AppTest.java_ from Eclipse
+- Right click > Run As > JUnit Test
