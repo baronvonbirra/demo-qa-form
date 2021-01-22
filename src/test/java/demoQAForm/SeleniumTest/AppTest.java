@@ -193,6 +193,6 @@ public class AppTest {
 
 	@AfterClass
 	public static void closeBrowser() {
-		// driver.quit();
+		driver.quit();
 	}
 }
