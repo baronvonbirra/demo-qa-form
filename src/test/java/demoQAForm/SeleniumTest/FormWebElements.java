@@ -79,6 +79,20 @@ public class FormWebElements {
 		System.out.println("User succesfully registered.");
 	}
 	
+	public void registerUser(String[] user) {
+		fillNameField(user[0]);
+		fillSurnameField(user[user.length - 1]);
+		fillEmailField(user[0] + user[user.length - 1]);
+		markRandomGender();
+		fillRandomPhoneField();
+		fillRandomDateField();
+		markRandomHobby();
+		fillRandomAddressField();
+		pressSubmitButton();
+		checkModalConfirmation();
+		pressCloseButton();
+	}
+	
 	public FormWebElements(WebDriver driver) {
 		this.driver = (FirefoxDriver) driver;
 	}

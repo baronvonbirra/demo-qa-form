@@ -69,73 +69,23 @@ public class AppTest {
 		FormWebElements elements = new FormWebElements(driver);
 		// Register User 1
 		System.out.println("user 1 is: " + user1);
-		elements.fillNameField(user1Split[0]);
-		elements.fillSurnameField(user1Split[user1Split.length - 1]);
-		elements.fillEmailField(user1Split[0] + user1Split[user1Split.length - 1]);
-		elements.markRandomGender();
-		elements.fillRandomPhoneField();
-		elements.fillRandomDateField();
-		elements.markRandomHobby();
-		elements.fillRandomAddressField();
-		elements.pressSubmitButton();
-		elements.checkModalConfirmation();
-		elements.pressCloseButton();
+		elements.registerUser(user1Split);
 
 		// Register User 2
 		System.out.println("user 2 is: " + user2);
-		elements.fillNameField(user2Split[0]);
-		elements.fillSurnameField(user2Split[user2Split.length - 1]);
-		elements.fillEmailField(user2Split[0] + user2Split[user2Split.length - 1]);
-		elements.markRandomGender();
-		elements.fillRandomPhoneField();
-		elements.fillRandomDateField();
-		elements.markRandomHobby();
-		elements.fillRandomAddressField();
-		elements.pressSubmitButton();
-		elements.checkModalConfirmation();
-		elements.pressCloseButton();
+		elements.registerUser(user2Split);
 		
 		// Register User 3
 		System.out.println("user 3 is: " + user3);
-		elements.fillNameField(user3Split[0]);
-		elements.fillSurnameField(user3Split[user3Split.length - 1]);
-		elements.fillEmailField(user3Split[0] + user3Split[user3Split.length - 1]);
-		elements.markRandomGender();
-		elements.fillRandomPhoneField();
-		elements.fillRandomDateField();
-		elements.markRandomHobby();
-		elements.fillRandomAddressField();
-		elements.pressSubmitButton();
-		elements.checkModalConfirmation();
-		elements.pressCloseButton();
+		elements.registerUser(user3Split);
 		
 		// Register User 4
 		System.out.println("user 4 is: " + user4);
-		elements.fillNameField(user4Split[0]);
-		elements.fillSurnameField(user4Split[user4Split.length - 1]);
-		elements.fillEmailField(user4Split[0] + user4Split[user4Split.length - 1]);
-		elements.markRandomGender();
-		elements.fillRandomPhoneField();
-		elements.fillRandomDateField();
-		elements.markRandomHobby();
-		elements.fillRandomAddressField();
-		elements.pressSubmitButton();
-		elements.checkModalConfirmation();
-		elements.pressCloseButton();
+		elements.registerUser(user4Split);
 		
 		// Register User 5
 		System.out.println("user 5 is: " + user5);
-		elements.fillNameField(user5Split[0]);
-		elements.fillSurnameField(user5Split[user5Split.length - 1]);
-		elements.fillEmailField(user5Split[0] + user5Split[user5Split.length - 1]);
-		elements.markRandomGender();
-		elements.fillRandomPhoneField();
-		elements.fillRandomDateField();
-		elements.markRandomHobby();
-		elements.fillRandomAddressField();
-		elements.pressSubmitButton();
-		elements.checkModalConfirmation();
-		elements.pressCloseButton();
+		elements.registerUser(user5Split);
 		
 		// Display non-registered users
 		String[] remainingUsers = Arrays.copyOfRange(shuffledList, 5, 10);
