@@ -35,6 +35,18 @@ public class AppTest {
 	}
 	public String[] shuffledList = shuffler();
 	
+	// Users info
+	String user1 = shuffledList[0];
+	String user1Split[] = user1.split("\\W+");
+	String user2 = shuffledList[1];
+	String user2Split[] = user2.split("\\W+");
+	String user3 = shuffledList[2];
+	String user3Split[] = user3.split("\\W+");
+	String user4 = shuffledList[3];
+	String user4Split[] = user4.split("\\W+");
+	String user5 = shuffledList[4];
+	String user5Split[] = user5.split("\\W+");
+	
 	@BeforeClass
 	public static void openBrowser() {
 		System.setProperty("webdriver.gecko.driver","C:\\Program Files\\selenium-java-3.141.59\\geckodriver.exe");
@@ -52,136 +64,78 @@ public class AppTest {
 		// Check URL matches the navigation path
 		Assert.assertTrue(URL.contains(RegistrationURL));
 		
-		// RegistrationPage Elements
-		WebElement fieldName = driver.findElement(By.id("firstName"));
-		WebElement fieldSurname = driver.findElement(By.id("lastName"));
-		WebElement fieldEmail = driver.findElement(By.id("userEmail"));
-		WebElement fieldGender1 = driver.findElement(By.id("gender-radio-1"));
-		WebElement fieldGender2 = driver.findElement(By.id("gender-radio-2"));
-		WebElement fieldGender3 = driver.findElement(By.id("gender-radio-3"));
-		WebElement[] fieldsGender = {fieldGender1, fieldGender2, fieldGender3};
-		WebElement fieldPhone = driver.findElement(By.id("userNumber"));
-		WebElement fieldDate = driver.findElement(By.id("dateOfBirthInput"));
-		WebElement fieldHobbies1 = driver.findElement(By.id("hobbies-checkbox-1"));
-		WebElement fieldHobbies2 = driver.findElement(By.id("hobbies-checkbox-2"));
-		WebElement fieldHobbies3 = driver.findElement(By.id("hobbies-checkbox-3"));
-		WebElement[] fieldsHobbies = {fieldHobbies1, fieldHobbies2, fieldHobbies3};
-		WebElement fieldAddress = driver.findElement(By.id("currentAddress"));
-		WebElement buttonSubmit = driver.findElement(By.id("submit"));
-		String modalTitle;
-		WebElement buttonCloseModal;
-		
 		System.out.println("Users to register are: " + Arrays.toString(shuffledList));
 
+		FormWebElements elements = new FormWebElements(driver);
 		// Register User 1
-		String user1 = shuffledList[0];
 		System.out.println("user 1 is: " + user1);
-		String user1Split[] = user1.split("\\W+");
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", fieldName);
-		fieldName.sendKeys(user1Split[0]);
-		fieldSurname.sendKeys(user1Split[user1Split.length - 1]);
-		fieldEmail.sendKeys(user1Split[0] + user1Split[user1Split.length - 1] + "@demoqa.com");
-		((JavascriptExecutor)driver).executeScript("arguments[0].checked = true;", fieldsGender[random.RandomNumber(3)]);
-		fieldPhone.sendKeys(random.RandomPhone());
-		fieldDate.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		fieldDate.sendKeys(random.RandomDate());
-		fieldDate.sendKeys(Keys.chord(Keys.ENTER));
-		((JavascriptExecutor)driver).executeScript("arguments[0].checked = true;", fieldsHobbies[random.RandomNumber(3)]);
-		fieldAddress.sendKeys(random.RandomAddress());
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", buttonSubmit);
-		buttonSubmit.click();
-		modalTitle = driver.findElement(By.id("example-modal-sizes-title-lg")).getText();
-		Assert.assertTrue(modalTitle.contains("Thanks for submitting the form"));
-		buttonCloseModal = driver.findElement(By.id("closeLargeModal"));
-		buttonCloseModal.click();
-		
+		elements.fillNameField(user1Split[0]);
+		elements.fillSurnameField(user1Split[user1Split.length - 1]);
+		elements.fillEmailField(user1Split[0] + user1Split[user1Split.length - 1]);
+		elements.markRandomGender();
+		elements.fillRandomPhoneField();
+		elements.fillRandomDateField();
+		elements.markRandomHobby();
+		elements.fillRandomAddressField();
+		elements.pressSubmitButton();
+		elements.checkModalConfirmation();
+		elements.pressCloseButton();
+
 		// Register User 2
-		String user2 = shuffledList[1];
 		System.out.println("user 2 is: " + user2);
-		String user2Split[] = user2.split("\\W+");
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", fieldName);
-		fieldName.sendKeys(user2Split[0]);
-		fieldSurname.sendKeys(user2Split[user2Split.length - 1]);
-		fieldEmail.sendKeys(user2Split[0] + user2Split[user2Split.length - 1] + "@demoqa.com");
-		((JavascriptExecutor)driver).executeScript("arguments[0].checked = true;", fieldsGender[random.RandomNumber(3)]);
-		fieldPhone.sendKeys(random.RandomPhone());
-		fieldDate.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		fieldDate.sendKeys(random.RandomDate());
-		fieldDate.sendKeys(Keys.chord(Keys.ENTER));
-		((JavascriptExecutor)driver).executeScript("arguments[0].checked = true;", fieldsHobbies[random.RandomNumber(3)]);
-		fieldAddress.sendKeys(random.RandomAddress());
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", buttonSubmit);
-		buttonSubmit.click();
-		modalTitle = driver.findElement(By.id("example-modal-sizes-title-lg")).getText();
-		Assert.assertTrue(modalTitle.contains("Thanks for submitting the form"));
-		buttonCloseModal = driver.findElement(By.id("closeLargeModal"));
-		buttonCloseModal.click();
+		elements.fillNameField(user2Split[0]);
+		elements.fillSurnameField(user2Split[user2Split.length - 1]);
+		elements.fillEmailField(user2Split[0] + user2Split[user2Split.length - 1]);
+		elements.markRandomGender();
+		elements.fillRandomPhoneField();
+		elements.fillRandomDateField();
+		elements.markRandomHobby();
+		elements.fillRandomAddressField();
+		elements.pressSubmitButton();
+		elements.checkModalConfirmation();
+		elements.pressCloseButton();
 		
 		// Register User 3
-		String user3 = shuffledList[2];
 		System.out.println("user 3 is: " + user3);
-		String user3Split[] = user3.split("\\W+");
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", fieldName);
-		fieldName.sendKeys(user3Split[0]);
-		fieldSurname.sendKeys(user3Split[user3Split.length - 1]);
-		fieldEmail.sendKeys(user3Split[0] + user3Split[user3Split.length - 1] + "@demoqa.com");
-		((JavascriptExecutor)driver).executeScript("arguments[0].checked = true;", fieldsGender[random.RandomNumber(3)]);
-		fieldPhone.sendKeys(random.RandomPhone());
-		fieldDate.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		fieldDate.sendKeys(random.RandomDate());
-		fieldDate.sendKeys(Keys.chord(Keys.ENTER));
-		((JavascriptExecutor)driver).executeScript("arguments[0].checked = true;", fieldsHobbies[random.RandomNumber(3)]);
-		fieldAddress.sendKeys(random.RandomAddress());
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", buttonSubmit);
-		buttonSubmit.click();
-		modalTitle = driver.findElement(By.id("example-modal-sizes-title-lg")).getText();
-		Assert.assertTrue(modalTitle.contains("Thanks for submitting the form"));
-		buttonCloseModal = driver.findElement(By.id("closeLargeModal"));
-		buttonCloseModal.click();
+		elements.fillNameField(user3Split[0]);
+		elements.fillSurnameField(user3Split[user3Split.length - 1]);
+		elements.fillEmailField(user3Split[0] + user3Split[user3Split.length - 1]);
+		elements.markRandomGender();
+		elements.fillRandomPhoneField();
+		elements.fillRandomDateField();
+		elements.markRandomHobby();
+		elements.fillRandomAddressField();
+		elements.pressSubmitButton();
+		elements.checkModalConfirmation();
+		elements.pressCloseButton();
 		
 		// Register User 4
-		String user4 = shuffledList[3];
 		System.out.println("user 4 is: " + user4);
-		String user4Split[] = user4.split("\\W+");
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", fieldName);
-		fieldName.sendKeys(user4Split[0]);
-		fieldSurname.sendKeys(user4Split[user4Split.length - 1]);
-		fieldEmail.sendKeys(user4Split[0] + user4Split[user4Split.length - 1] + "@demoqa.com");
-		((JavascriptExecutor)driver).executeScript("arguments[0].checked = true;", fieldsGender[random.RandomNumber(3)]);
-		fieldPhone.sendKeys(random.RandomPhone());
-		fieldDate.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		fieldDate.sendKeys(random.RandomDate());
-		fieldDate.sendKeys(Keys.chord(Keys.ENTER));
-		((JavascriptExecutor)driver).executeScript("arguments[0].checked = true;", fieldsHobbies[random.RandomNumber(3)]);
-		fieldAddress.sendKeys(random.RandomAddress());
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", buttonSubmit);
-		buttonSubmit.click();
-		modalTitle = driver.findElement(By.id("example-modal-sizes-title-lg")).getText();
-		Assert.assertTrue(modalTitle.contains("Thanks for submitting the form"));
-		buttonCloseModal = driver.findElement(By.id("closeLargeModal"));
-		buttonCloseModal.click();
+		elements.fillNameField(user4Split[0]);
+		elements.fillSurnameField(user4Split[user4Split.length - 1]);
+		elements.fillEmailField(user4Split[0] + user4Split[user4Split.length - 1]);
+		elements.markRandomGender();
+		elements.fillRandomPhoneField();
+		elements.fillRandomDateField();
+		elements.markRandomHobby();
+		elements.fillRandomAddressField();
+		elements.pressSubmitButton();
+		elements.checkModalConfirmation();
+		elements.pressCloseButton();
 		
 		// Register User 5
-		String user5 = shuffledList[4];
 		System.out.println("user 5 is: " + user5);
-		String user5Split[] = user5.split("\\W+");
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", fieldName);
-		fieldName.sendKeys(user5Split[0]);
-		fieldSurname.sendKeys(user5Split[user5Split.length - 1]);
-		fieldEmail.sendKeys(user5Split[0] + user5Split[user5Split.length - 1] + "@demoqa.com");
-		((JavascriptExecutor)driver).executeScript("arguments[0].checked = true;", fieldsGender[random.RandomNumber(3)]);
-		fieldPhone.sendKeys(random.RandomPhone());
-		fieldDate.sendKeys(Keys.chord(Keys.CONTROL, "a"));
-		fieldDate.sendKeys(random.RandomDate());
-		fieldDate.sendKeys(Keys.chord(Keys.ENTER));
-		((JavascriptExecutor)driver).executeScript("arguments[0].checked = true;", fieldsHobbies[random.RandomNumber(3)]);
-		fieldAddress.sendKeys(random.RandomAddress());
-		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", buttonSubmit);
-		buttonSubmit.click();
-		modalTitle = driver.findElement(By.id("example-modal-sizes-title-lg")).getText();
-		Assert.assertTrue(modalTitle.contains("Thanks for submitting the form"));
-		buttonCloseModal = driver.findElement(By.id("closeLargeModal"));
-		buttonCloseModal.click();
+		elements.fillNameField(user5Split[0]);
+		elements.fillSurnameField(user5Split[user5Split.length - 1]);
+		elements.fillEmailField(user5Split[0] + user5Split[user5Split.length - 1]);
+		elements.markRandomGender();
+		elements.fillRandomPhoneField();
+		elements.fillRandomDateField();
+		elements.markRandomHobby();
+		elements.fillRandomAddressField();
+		elements.pressSubmitButton();
+		elements.checkModalConfirmation();
+		elements.pressCloseButton();
 		
 		// Display non-registered users
 		String[] remainingUsers = Arrays.copyOfRange(shuffledList, 5, 10);
