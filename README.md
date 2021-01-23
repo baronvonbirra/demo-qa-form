@@ -28,10 +28,11 @@ Hint: attention to the details
 - Alternatively, you can watch the _registration.feature.mp4_ video for a quick visual check as well.
 
 ## Launching Selenium tests
-- Install Eclipse & Maven
+- Requirements: Install Eclipse, Maven, JUnit & Selenium
 - Clone repo
-- Open _AppTest.java_ from Eclipse
-- Right click > Run As > JUnit Test
+- Open src/test/java/demoQAForm/SeleniumTest/AppTest.java from Eclipse
+- Change L22 with your local path for Selenium Webdriver (I'm using geckodriver, that you can find here -> [link](https://github.com/mozilla/geckodriver/releases))
+- Right click on IDE > Run As > JUnit Test
 
 ## Notes
 The automation-practice-form where the tests point has the following identified errors that affects the automation:
