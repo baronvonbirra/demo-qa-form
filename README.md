@@ -28,7 +28,7 @@ Hint: attention to the details
 - Alternatively, you can watch the _registration.feature.mp4_ video for a quick visual check as well.
 
 ## Launching Selenium tests
-- Requirements: Install Eclipse, Maven, JUnit & Selenium
+- Requirements: Install [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html), [Eclipse](https://www.eclipse.org/downloads/), [Maven](http://maven.apache.org/install.html), [JUnit](https://github.com/junit-team/junit4/wiki/Download-and-Install) & [Selenium](https://selenium.dev/downloads/)
 - Clone repo
 - Open src/test/java/demoQAForm/SeleniumTest/AppTest.java from Eclipse
 - Change L22 with your local path for Selenium Webdriver (I'm using geckodriver, that you can find here -> [link](https://github.com/mozilla/geckodriver/releases))
